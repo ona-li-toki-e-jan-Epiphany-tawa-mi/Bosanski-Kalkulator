@@ -2,8 +2,19 @@ from typing import NoReturn
 import PySimpleGUI as sg
 from playsound import playsound
 from threading import Thread
+from pathlib import Path
 
+_moduleDirectory = None
 
+def moduleDirectory() -> str:
+    ''' Gets the path of the module directory. '''
+    global _moduleDirectory
+
+    if _moduleDirectory is not None:
+        return _moduleDirectory
+
+    _moduleDirectory = str(Path(__file__).parent)
+    return _moduleDirectory
 
 def runInDaemonThread(function) -> None:
     ''' Launches given function in a separate daemon thread. '''
@@ -21,7 +32,7 @@ def buildWindow() -> sg.Window:
             , "font":   'Comic Sans MS'
             , "relief": 'sunken'
             }
-    flag  = "zastava_bosne_i_hercegovine.png"
+    flag  = moduleDirectory() + "/images/zastava_bosne_i_hercegovine.png"
     title = "Bosanski Kalkulator"
 
     keypad = [ ["1",     "2", "3", "+", "del", "clr"]
@@ -102,7 +113,7 @@ def processInput(window: sg.Window, event, values, calculator: Calculator) -> No
             calculator.stack.insert(0, calculator.stack.pop())
 
     # Plays gunfire effect on every button press.
-    runInDaemonThread(lambda: playsound("pucnjava.mp3"))
+    runInDaemonThread(lambda: playsound(moduleDirectory() + "/audio/pucnjava.mp3"))
 
 def render(window: sg.Window, calculator: Calculator) -> None:
     ''' General render method for updating GUI. '''
@@ -115,7 +126,7 @@ def render(window: sg.Window, calculator: Calculator) -> None:
 def loopPlayBosanskaArtiljerija() -> NoReturn:
     ''' Plays Bosanska Artiljerija on repeat. Threadblocking and meant to be used with runInDaemonThread(). '''
     while True:
-        playsound("bosanska_artiljerija.mp3")
+        playsound(moduleDirectory() + "/audio/bosanska_artiljerija.mp3")
 
 
 
