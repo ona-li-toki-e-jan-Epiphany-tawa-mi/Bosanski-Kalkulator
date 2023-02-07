@@ -51,8 +51,8 @@ Alternatively, you can run it using the source code in the project folder.
 
 The following dependencies are required:
 
-- PySimpleGUI - \<https://pypi.org/project/PySimpleGUI\>
-- playsound - \<https://pypi.org/project/playsound\>
+- PySimpleGUI - \<https://pypi.org/project/PySimpleGUI>
+- playsound - \<https://pypi.org/project/playsound>
 
 Which can be installed using the following command(s):
 ```console
