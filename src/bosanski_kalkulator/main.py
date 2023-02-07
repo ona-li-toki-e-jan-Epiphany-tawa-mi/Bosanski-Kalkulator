@@ -46,13 +46,16 @@ def buildWindow() -> sg.Window:
     sg.theme_text_color(theme['gray'])
     sg.theme_element_text_color(theme['gray'])
 
-    layout = [ [ sg.Text(size=(80, 10), font=(theme['font'], 15), text_color=theme['yellow'], key="stack", relief=theme['relief'], background_color=theme['blue'])] 
-             , [ sg.Text(size=(80, 1), font=(theme['font'], 15), text_color=theme['blue'], key="typingArea", relief=theme['relief'], background_color=theme['yellow'])]
-             , [ sg.Col([[sg.Button(button, font=(theme['font'], 10), size=(3, 2)) for button in row] for row in keypad])
-               , sg.Col([[sg.Image(flag, subsample=4)]]) 
+    layout = [ [ sg.Text( size = (80, 10), font = (theme['font'], 15), text_color = theme['yellow'], key = "stack"
+                        , relief = theme['relief'], background_color = theme['blue'])] 
+             , [ sg.Text( size = (80, 1), font = (theme['font'], 15), text_color = theme['blue'], key = "typingArea"
+                        , relief = theme['relief'], background_color = theme['yellow'])]
+             , [ sg.Col([[sg.Button(button_text = button, font = (theme['font'], 10), size = (3, 2)) for button in row] 
+                                                                                                     for row in keypad])
+               , sg.Col([[sg.Image(flag, subsample = 4)]]) 
              ] ]
 
-    return sg.Window(title, layout)
+    return sg.Window(title = title, layout = layout, titlebar_font = theme['font'])
 
 
 
