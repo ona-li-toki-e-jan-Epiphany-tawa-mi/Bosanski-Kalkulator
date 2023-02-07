@@ -25,7 +25,13 @@ The built packages will appear in [dist/.](dist "Distributables folder.")
 
 ## Installation
 
-You can download the latest package from [Releases,](https://github.com/ona-li-toki-e-jan-Epiphany-tawa-mi/Bosanski-Kalkulator/releases "Bosanski Kalkulator releases.") or build from source, and install it using the following command(s):
+Bosanski Kalkulator is avalible on [PyPi,](https://pypi.org/project/bosanski-kalkulator "Bosanski Kalkulator on PyPi") and can be installed by running the following command(s):
+
+```console
+pip install bosanski-kalkulator
+```
+
+Alternatively, you can download the latest package from [Releases,](https://github.com/ona-li-toki-e-jan-Epiphany-tawa-mi/Bosanski-Kalkulator/releases "Bosanski Kalkulator releases.") or build from source, and install it using the following command(s):
 
 ```console
 pip install <package name goes here>
