@@ -1,3 +1,5 @@
+![Screen shot of Bosanski Kalkulator](screenshot.png)
+
 # Bosanski Kalkulator
 
 A perfectly normal GUI stack-based calculator.
